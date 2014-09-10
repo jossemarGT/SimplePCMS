@@ -26,7 +26,9 @@ var jsFilesToInject = [
   'vendor/lodash/dist/lodash.min.js',
   'vendor/restangular/dist/restangular.min.js',
   'vendor/angular-ui-router/release/angular-ui-router.min.js',
-
+  'vendor/angular-bootstrap/ui-bootstrap-tpls.min.js',
+  'vendor/angular-bootstrap/ui-bootstrap.min.js',
+  
   'app/app.js',
   'app/**/*.js'
 ];

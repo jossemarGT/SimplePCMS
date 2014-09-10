@@ -22,6 +22,7 @@
     "jwt-simple": "^0.2.0",
     "rc": "~0.5.0",
     "sails": "~0.10.5",
+    "sails-generate-controller-angular": "0.0.1",
     "sails-mongo": "~0.10.4"
   },
   "scripts": {
