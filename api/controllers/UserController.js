@@ -13,9 +13,11 @@ module.exports = {
    * `UserController.login()`
    */
   login: function (req, res) {
-    return res.json({
-      todo: 'login() is not implemented yet!'
-    });
+    // Yes res.login() you can check in responses/login.js
+    return res.login({
+      username: req.param('username'),
+      password: req.param('password')
+      });
   },
 
 
@@ -23,19 +25,16 @@ module.exports = {
    * `UserController.logout()`
    */
   logout: function (req, res) {
-    return res.json({
-      todo: 'logout() is not implemented yet!'
-    });
+    req.session.me = null;
+    
+    return res.ok('Bye')
   },
-
 
   /**
    * `UserController.signup()`
    */
   signup: function (req, res) {
-    return res.json({
-      todo: 'signup() is not implemented yet!'
-    });
+    return res.badRequest('Not implemented yet');
   },
   
   definition: function(req, res) {
