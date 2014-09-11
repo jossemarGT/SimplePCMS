@@ -7,7 +7,7 @@
         .controller('SingleUserCtrl', SingleUserCtrl);
 
     function UserCtrl($scope, $state, Users, UserDefinition, SailsResourceService) {
-        var resourceService = new SailsResourceService('users'.toLowerCase());
+        var resourceService = new SailsResourceService('users');
         
         $scope.users = Users;
         $scope.model_def = UserDefinition.originalElement;

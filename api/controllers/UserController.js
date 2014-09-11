@@ -36,11 +36,11 @@ module.exports = {
     return res.json({
       todo: 'signup() is not implemented yet!'
     });
+  },
+  
+  definition: function(req, res) {
+    res.json(User.definition);
   }
-    ,
-    definition: function(req, res) {
-        res.json(User.definition);
-    }
 
 };
 
