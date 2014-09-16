@@ -26,13 +26,6 @@ module.exports = {
     // It doesn't matter because you need to release the token in the client
     return res.ok('Bye')
   },
-
-  /**
-   * `UserController.signup()`
-   */
-  signup: function (req, res) {
-    return res.badRequest('Not implemented yet');
-  },
   
   definition: function(req, res) {
     res.json(User.definition);

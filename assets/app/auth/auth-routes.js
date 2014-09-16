@@ -6,24 +6,22 @@
         .config(function($stateProvider, $urlRouterProvider) {
 
             $urlRouterProvider
-                .when('/auths', '/auths/list');
-
+                .when('/auth', '/auth/login');
+      
             $stateProvider
-                .state('auths', {
+                .state('auth', {
                     abstract: true,
-                    url: '/auths',
+                    url: '/auth',
                     controller: 'AuthCtrl',
                     template: '<div ui-view></div>',
                 })
-                .state('auths.login', {
+                .state('auth.login', {
                     url: '/login',
-                    templateUrl: 'app/auth/auth-login.html'
+                    templateUrl: 'app/auth/auth-login.tpl.html'
                 })
-            /*
                 .state('auths.logout', {
                     url: '/logout'
                 });
-            */
         });
 })(
     window.angular

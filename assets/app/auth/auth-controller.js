@@ -1,24 +1,31 @@
 (function(ng, _) {
+  
+  'use strict';
 
-    'use strict';
+  ng.module('SimplePCMS')
+      .controller('AuthCtrl', AuthCtrl)
 
-    ng.module('SimplePCMS')
-        .controller('AuthCtrl', AuthCtrl)
-
-    function AuthCtrl($scope, $state, Auths, AuthDefinition, SailsResourceService) {
-        var resourceService = new SailsResourceService('auths'.toLowerCase());
+  function AuthCtrl($scope, $state, $http, $window) {
+    $scope.name = {t: 'hello!'};
+      
+    $scope.pass = {};
+    
+    $scope.login = function (pass) {
+      $http
+        .post('/login', pass)
+        .success(function (data, status, headers, config) {
+          $window.sessionStorage.token = data.token;
+          $state.go('home');
+        })
+        .error(function (data, status, headers, config) {
+          delete $window.sessionStorage.token;
+          console.log('something went wrong D:');
         
-        $scope.auths = Auths;
-        $scope.model_def = AuthDefinition.originalElement;
-        $scope.auth = {};
-
-        $scope.login = function login() {
-            auth = auth || $scope.auth;
-            if (window.confirm('Are you sure you want to delete this auth?')) {
-                return resourceService.remove(auth, $scope.auths);
-            }
-        };
-    }
+        });
+    };
+    
+  }
+  
 
 })(
     window.angular,
