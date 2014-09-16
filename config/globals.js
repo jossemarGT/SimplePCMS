@@ -9,6 +9,8 @@
  * http://sailsjs.org/#/documentation/reference/sails.config/sails.config.globals.html
  */
 module.exports.globals = {
+  
+  jwtSecret: process.env.jwt_secret || 'D0ntUs3Th¡$S3cr3T!'
 
   /****************************************************************************
   *                                                                           *

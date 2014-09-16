@@ -43,14 +43,14 @@ module.exports = {
    *                    - email     {String}
    *                    - password  {String}
    * @param {Function} next
-   */
+   *
   signup : function (inputs, next) {
     User.create({
       name: inputs.name,
       username: inputs.email,
       password: inputs.password
     }).exec(next);
-  },
+  },*/
 
   /** 
    * Check validness of a login using the provided inputs.
@@ -60,11 +60,17 @@ module.exports = {
    *                  + password {String}
    * @param {Function} next
    */
-  attempLogin: function (inputs, next) {
+  attemptLogin: function (inputs, next) {
     User.findOne({
-      username: inputs.username,
-      password: inputs.password
-    }).exec(next);
+      username: inputs.username
+    }).exec(function(err, user){
+      if (err) return next(err, user);
+      
+      bcrypt.compare(inputs.password, user.password, function(err, res) {
+        if(! res) return next(err, false);
+        return next(err, user);
+      });
+    });
   },
   
   /**

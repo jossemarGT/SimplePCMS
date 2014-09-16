@@ -13,7 +13,7 @@ module.exports = function login(inputs) {
   var res = this.res;
   
   User.attemptLogin({
-    email: inputs.username,
+    username: inputs.username,
     password: inputs.password
   }, function (err, user) {
     if (err) return res.negotiate(err);
@@ -21,9 +21,14 @@ module.exports = function login(inputs) {
       return res.badRequest('Invalid username/password combination.');
     }
     
-    // TODO: Change the auth method (like jwt)
-    req.session.me = user.id;
-    req.session.rol = user.rol;
-    return res.ok();
+    var usr = {
+      usr: user.id,
+      rol: user.rol
+    }
+    
+    var jwt = require('jwt-simple');
+    var token = jwt.encode(usr, sails.config.globals.jwtSecret, 'HS512');
+    
+    return res.ok({token: token});
   });
 };

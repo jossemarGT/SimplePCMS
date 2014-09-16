@@ -6,8 +6,6 @@
  */
 
 module.exports = {
-	
-
 
   /**
    * `UserController.login()`
@@ -25,8 +23,7 @@ module.exports = {
    * `UserController.logout()`
    */
   logout: function (req, res) {
-    req.session.me = null;
-    
+    // It doesn't matter because you need to release the token in the client
     return res.ok('Bye')
   },
 
