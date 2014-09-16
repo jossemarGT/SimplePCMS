@@ -6,7 +6,7 @@
 (function(ng) {
   'use strict';
   
-  ng.module('SimplePCMS').factory('authInterceptor', function ($rootScope, $q, $window, ) {
+  ng.module('SimplePCMS').factory('authInterceptor', function ($rootScope, $q, $window) {
     return {
       request: function (config) {
         config.headers = config.headers || {};
@@ -17,9 +17,9 @@
       },
       response: function (response) {
         if (response.status === 401) {
-          $state.go('auth.login');
+          //$state.go('auth.login');
         } else if (response.status === 403) {
-          $state.go('home');
+          //$state.go('home');
         }
         return response || $q.when(response);
       }

@@ -64,7 +64,7 @@ module.exports = {
     User.findOne({
       username: inputs.username
     }).exec(function(err, user){
-      if (err) return next(err, user);
+      if (err || !user) return next(err, false);
       
       bcrypt.compare(inputs.password, user.password, function(err, res) {
         if(! res) return next(err, false);

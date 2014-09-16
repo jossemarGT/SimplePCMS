@@ -10,6 +10,8 @@
       
     $scope.pass = {};
     
+    $scope.message = {type: 'danger', msg:''}
+    
     $scope.login = function (pass) {
       $http
         .post('/login', pass)
@@ -19,8 +21,9 @@
         })
         .error(function (data, status, headers, config) {
           delete $window.sessionStorage.token;
-          console.log('something went wrong D:');
-        
+          $scope.message.type = 'danger';
+          $scope.message.msg = 'Incorrect username or password';
+          console.log($scope.message.msg);
         });
     };
     
