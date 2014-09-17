@@ -22,7 +22,7 @@ module.exports = function login(inputs) {
     }
     
     var usr = {
-      usr: user.id,
+      id: user.id,
       rol: user.rol
     }
     

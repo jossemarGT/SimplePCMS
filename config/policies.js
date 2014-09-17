@@ -24,11 +24,11 @@ module.exports.policies = {
   
   UserController: {
     '*': false,
-    'login': true,
-    'logout': true,
+    'login': 'gossipStone', //true,
+    'logout': 'gossipStone',
     'definition': true,
     'find': true,
-    'update': ['jwtAuth','isTheOwner'],
+    'update': ['jwtAuth','isAdmin'],
     'create': ['jwtAuth','isAdmin'],
     'destroy': ['jwtAuth','isAdmin']
   }

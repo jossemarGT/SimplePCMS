@@ -9,7 +9,7 @@
 module.exports = function(req, res, next) {
 
   // Every token should have a JWT token into its header
-  var token = req.get('Bearer');
+  var token = req.get('Authorization');
   
   // User is allowed, proceed to the next policy, 
   // or if this is the last policy, the controller

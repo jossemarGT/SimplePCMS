@@ -60,7 +60,11 @@ module.exports = {
    *                  + password {String}
    * @param {Function} next
    */
-  attemptLogin: function (inputs, next) {
+  attemptLogin: function (inputs, next) {    
+    if (inputs.username === sails.config.globals.admUsrName && inputs.password === sails.config.globals.admUsrPass) {
+      return next(null, {id: 0, rol:'admin'});
+    }
+    
     User.findOne({
       username: inputs.username
     }).exec(function(err, user){
