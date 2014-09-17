@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>New Sails App</title>
+    <title>SimplePCMS <%- title %></title>
 
     <!-- Viewport mobile tag for sensible mobile support -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -33,29 +33,37 @@
     <!--STYLES END-->
   </head>
 
+  
   <body ng-app="SimplePCMS">
-    <div ui-view></div>
-
-    <!--
-        Client-side Templates
-        ========================
-
-        HTML templates are important prerequisites of modern, rich client applications.
-        To work their magic, frameworks like Backbone, Angular, Ember, and Knockout require
-        that you load these templates client-side.
-
-        By default, your Gruntfile is configured to automatically load and precompile
-        client-side JST templates in your `assets/linker/templates` folder, then
-        include them here automatically (between TEMPLATES and TEMPLATES END).
-        
-        To customize this behavior to fit your needs, just edit your Gruntfile.
-        For example, here are a few things you could do:
-
-            + Import templates from other directories
-            + Use a different template engine (handlebars, jade, dust, etc.)
-            + Internationalize your client-side templates using a server-side
-              stringfile before they're served.
-    -->
+    
+    <header class="banner navbar navbar-default navbar-fixed-top" role="banner">
+      
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand"  ui-sref="home">SimplePCMS</a>
+        </div>
+		
+        <nav class="collapse navbar-collapse navbar-right" role="navigation">
+          <ul class="nav navbar-nav">
+            <li ng-class="{active: $state.includes('user')}"><a ui-sref="users.list">Users</a></li>
+            <!--<li ui-sref-active="active"><a ui-sref="about">About</a></li>-->
+          </ul>
+        </nav>
+      </div>
+      
+    </header>
+    
+    <div class="container">
+      <!--<div class="" ui-view="aside"></div>-->
+      <div class="" ui-view></div>
+    </div>
+    
 
     <!--TEMPLATES-->
     
@@ -86,10 +94,12 @@
     -->
 
     <!--SCRIPTS-->
-    <script src="/vendor/angular/angular.min.js"></script>
+    <script src="/vendor/angular/angular.js"></script>
     <script src="/vendor/lodash/dist/lodash.min.js"></script>
     <script src="/vendor/restangular/dist/restangular.min.js"></script>
     <script src="/vendor/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="/vendor/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="/vendor/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="/app/app.js"></script>
     <script src="/app/auth/auth-controller.js"></script>
     <script src="/app/auth/auth-factory.js"></script>

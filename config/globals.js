@@ -9,6 +9,23 @@
  * http://sailsjs.org/#/documentation/reference/sails.config/sails.config.globals.html
  */
 module.exports.globals = {
+  
+  /****************************************************************************
+  *                                                                           *
+  * The secret string used for jwt encoding, please set the env var or at     *
+  * least change it here.                                                     *
+  *                                                                           *
+  ****************************************************************************/
+  jwtSecret: process.env.jwt_secret || 'D0ntUs3Th¡$S3cr3T!',
+  
+  /****************************************************************************
+  *                                                                           *
+  * (Just being lazy) In order to use the admin user you have to set its      *
+  * credentials as env var                                                    *
+  *                                                                           *
+  ****************************************************************************/
+  admUsrName: process.env.SPCMS_ADM_USERNAME,
+  admUsrPass: process.env.SPCMS_ADM_PASSWORD
 
   /****************************************************************************
   *                                                                           *

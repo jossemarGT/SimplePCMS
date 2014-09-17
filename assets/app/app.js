@@ -1,8 +1,8 @@
 (function(ng, _) {
     'use strict';
 
-    ng.module('SimplePCMS', ['restangular', 'ui.router'])
-        .config(function(RestangularProvider) {
+    ng.module('SimplePCMS', ['restangular', 'ui.router', 'ui.bootstrap'])
+        .config(function(RestangularProvider, $stateProvider, $urlRouterProvider) {
             RestangularProvider
                 .addRequestInterceptor(function(el, operation) {
                     if (operation === 'put' || operation === 'post') {
@@ -26,6 +26,19 @@
                     }
                     return newResponse;
                 });
+      
+            $urlRouterProvider
+                .when('/home', '/');
+
+            $stateProvider
+                .state('home', {
+                    //abstract: true,
+                    url: '/',
+                    //controller: 'UserCtrl',
+                    templateUrl: 'app/partials/home.tpl.html'
+                });
+            $urlRouterProvider.otherwise("/home");
+      
         });
 
 })(

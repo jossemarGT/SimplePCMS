@@ -1,8 +1,8 @@
 {
   "name": "SimplePCMS",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "authors": [
-    "jossemargt"
+    "jossemarGT"
   ],
   "moduleType": [
     "globals"
@@ -12,6 +12,8 @@
     "angular": "~1.2.18",
     "restangular": "~1.4.0",
     "angular-ui-router": "~0.2.10",
-    "angular-classy" : "~0.4.2"
+    "angular-classy": "~0.4.2",
+    "angular-bootstrap": "~0.11.0",
+    "bootstrap": "~3.2.0"
   }
 }
