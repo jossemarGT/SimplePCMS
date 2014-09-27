@@ -27,17 +27,18 @@ var jsFilesToInject = [
   'vendor/lodash/dist/lodash.min.js',
   // Angular + easy REST 
   'vendor/restangular/dist/restangular.min.js',
+  // Angular Sanitize
+  'vendor/angular-sanitize/angular-sanitize.min.js',
   // angular.ui router
   'vendor/angular-ui-router/release/angular-ui-router.min.js',
   // Bootstrap w/pure Angular
   'vendor/angular-bootstrap/ui-bootstrap.min.js',
   'vendor/angular-bootstrap/ui-bootstrap-tpls.js',
   //Showdown (markdown parser)
-  'vendor/showdown/src/showdown.js',
-  // 'vendor/showdown/src/extensions/google-prettify.js',
-  // compressed
-  //'vendor/showdown/compressed/showdown.js',
-  // 'vendor/showdown/compressed/extensions/google-prettify.js',
+  'vendor/showdown/compressed/showdown.js',
+  'vendor/showdown/compressed/extensions/google-prettify.js',
+  'vendor/angular-markdown-directive/markdown.js',
+  
     
   // ng-app
   'app/app.js',

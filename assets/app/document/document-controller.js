@@ -35,22 +35,10 @@
 
     function SingleDocumentCtrl($scope, $stateParams, Documents, DocumentDefinition) {
       $scope.documentTypes = ['page','problem','solution']; // Eeyup, hardcoded bro /)  
-      
-      //$stateParams.id = _.parseInt($stateParams.id);
 
-      
-      if (!_.isNaN($stateParams.id)) {
-
-        $scope.document = _.find(Documents, {
-          id: $stateParams.id
-        });
-      } else {
-        console.log(":D");
-        
-        $scope.document = _.find(Documents, {
-          id: $stateParams.id
-        });
-      }
+      $scope.document = _.find(Documents, {
+        id: $stateParams.id
+      });
     }
 
 })(

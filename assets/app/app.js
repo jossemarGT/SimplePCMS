@@ -1,7 +1,7 @@
 (function(ng, _) {
     'use strict';
 
-    ng.module('SimplePCMS', ['restangular', 'ui.router', 'ui.bootstrap'])
+    ng.module('SimplePCMS', ['restangular', 'ui.router', 'ui.bootstrap', 'btford.markdown'])
         .config(function(RestangularProvider, $stateProvider, $urlRouterProvider) {
             RestangularProvider
                 .addRequestInterceptor(function(el, operation) {
