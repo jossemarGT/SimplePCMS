@@ -6,11 +6,11 @@
  */
 
 module.exports = {
-	
-    
-    definition: function(req, res) {
-        res.json(Document.definition);
-    }
+  
+  definition: function(req, res) {
+        
+    res.json(Document.definition);
+  }
 
 };
 

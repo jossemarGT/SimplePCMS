@@ -10,6 +10,8 @@ var bcrypt = require('bcrypt');
 module.exports = {
   
   schema: false,
+  autoCreatedAt: true,
+  autoUpdatedAd: true,
   
   attributes: {
     username: {
