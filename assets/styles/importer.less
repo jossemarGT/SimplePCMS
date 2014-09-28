@@ -13,8 +13,43 @@
 
 body {
   //Because of fixed navbar
-  padding: 70px;
+  padding: 70px 0 20px;
 }
+
+//------------------
+
+.main-view {
+  position: relative;
+  height: 65px;
+  -webkit-transition:opacity .4s ease-in-out;
+  -moz-transition:opacity .4s ease-in-out;
+  -o-transition:opacity .4s ease-in-out;
+  transition:opacity .4s ease-in-out;
+}
+
+
+[ui-view].ng-enter, [ui-view].ng-leave {
+  position: absolute;
+}
+
+[ui-view].ng-enter {
+  transition-delay: .1s;
+  opacity: 0;
+}
+
+[ui-view].ng-enter-active {
+  opacity: 1;
+}
+
+[ui-view].ng-leave {
+  opacity: 1; 
+}
+
+[ui-view].ng-leave-active {
+  opacity: 0;
+}
+
+//----------------------------------------
 
 #login-form {
   .input-group {
@@ -25,4 +60,30 @@ body {
 .form-group.last {
   position: relative;
   top: 10px;
+}
+
+.document-view {
+  
+  h1.page {
+    background-color: @brand-primary;
+  }
+  
+  h1.problem {
+    background-color: @brand-success;
+  }
+}
+
+//----------
+
+.documents.list-group {
+  .icon {
+    width: 100px;
+    float: left;
+    text-align: center;
+    font-size: 4.5em;
+  }
+  
+  h2 {
+    margin: 0 0 5px;
+  }
 }

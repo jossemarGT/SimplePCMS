@@ -6,28 +6,6 @@
     <!-- Viewport mobile tag for sensible mobile support -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    
-    <!--  
-        Stylesheets and Preprocessors
-        ==============================
-
-        You can always bring in CSS files manually with `<link>` tags, or asynchronously
-        using a solution like AMD (RequireJS).  Or, if you like, you can take advantage 
-        of Sails' conventional asset pipeline (boilerplate Gruntfile).
-
-        By default, stylesheets from your `assets/linker/styles` folder are included
-        here automatically (between STYLES and STYLES END). Both CSS (.css) and LESS (.less)
-        are supported. In production, your styles will be minified and concatenated into
-        a single file.
-        
-        To customize any part of the built-in behavior, just edit your Gruntfile.
-        For example, here are a few things you could do:
-            
-            + Change the order of your CSS files
-            + Import stylesheets from other directories
-            + Use a different or additional preprocessor, like SASS, SCSS or Stylus
-    -->
-
     <!--STYLES-->
     <link rel="stylesheet" href="/styles/importer.css">
     <!--STYLES END-->
@@ -51,7 +29,10 @@
 		
         <nav class="collapse navbar-collapse navbar-right" role="navigation">
           <ul class="nav navbar-nav">
-            <li ng-class="{active: $state.includes('user')}"><a ui-sref="users.list">Users</a></li>
+            <li ng-class="{active: $state.includes('home')}"><a ui-sref="home">Home</a></li>
+            <li ng-class="{active: $state.includes('documents')}"><a ui-sref="documents.list">Documents</a></li>
+            <li ng-class="{active: $state.includes('scores')}"><a ui-sref="scores.list">Scores</a></li>
+            <li ng-class="{active: $state.includes('auth')}"><a ui-sref="auth.login">Login</a></li>
             <!--<li ui-sref-active="active"><a ui-sref="about">About</a></li>-->
           </ul>
         </nav>
@@ -59,9 +40,9 @@
       
     </header>
     
-    <div class="container">
+    <div class="container ui-view-container">
       <!--<div class="" ui-view="aside"></div>-->
-      <div class="" ui-view></div>
+      <div class="main-view" ui-view></div>
     </div>
     
 
@@ -98,6 +79,7 @@
     <script src="/vendor/lodash/dist/lodash.min.js"></script>
     <script src="/vendor/restangular/dist/restangular.min.js"></script>
     <script src="/vendor/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="/vendor/angular-animate/angular-animate.min.js"></script>
     <script src="/vendor/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="/vendor/angular-bootstrap/ui-bootstrap.min.js"></script>
     <script src="/vendor/angular-bootstrap/ui-bootstrap-tpls.js"></script>

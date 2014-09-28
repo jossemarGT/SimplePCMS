@@ -29,6 +29,7 @@ var jsFilesToInject = [
   'vendor/restangular/dist/restangular.min.js',
   // Angular Sanitize
   'vendor/angular-sanitize/angular-sanitize.min.js',
+  'vendor/angular-animate/angular-animate.min.js',
   // angular.ui router
   'vendor/angular-ui-router/release/angular-ui-router.min.js',
   // Bootstrap w/pure Angular

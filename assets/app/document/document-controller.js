@@ -11,7 +11,7 @@
       $scope.documents = Documents;
       $scope.model_def = DocumentDefinition.originalElement;
       $scope.document = {};
-      $scope.documentTypes = ['page','problem','solution']; // Eeyup, hardcoded bro /)      
+      $scope.documentTypes = ['page','problem']; // Eeyup, hardcoded bro /)      
       $scope.document.type = $scope.documentTypes[0];
       $scope.message = { msg: '', type:'' };
 
@@ -34,7 +34,7 @@
     }
 
     function SingleDocumentCtrl($scope, $stateParams, Documents, DocumentDefinition) {
-      $scope.documentTypes = ['page','problem','solution']; // Eeyup, hardcoded bro /)  
+      $scope.documentTypes = ['page','problem']; // Eeyup, hardcoded bro /)  
 
       $scope.document = _.find(Documents, {
         id: $stateParams.id
