@@ -25,11 +25,26 @@ var jsFilesToInject = [
   //'vendor/angular/angular.min.js',
   'vendor/angular/angular.js',
   'vendor/lodash/dist/lodash.min.js',
+  // Angular + easy REST 
   'vendor/restangular/dist/restangular.min.js',
+  // Angular Sanitize
+  'vendor/angular-sanitize/angular-sanitize.min.js',
+  'vendor/angular-animate/angular-animate.min.js',
+  // angular.ui router
   'vendor/angular-ui-router/release/angular-ui-router.min.js',
+  // Bootstrap w/pure Angular
   'vendor/angular-bootstrap/ui-bootstrap.min.js',
   'vendor/angular-bootstrap/ui-bootstrap-tpls.js',
-  
+  //Showdown (markdown parser)
+  'vendor/showdown/compressed/showdown.js',
+  'vendor/showdown/compressed/extensions/google-prettify.js',
+  'vendor/angular-markdown-directive/markdown.js',
+  // Angular FileReader
+  'vendor/ngFileReader/src/ngFileReader.min.js',
+  // ui toggle switch
+  'vendor/angular-bootstrap-toggle-switch/angular-toggle-switch.min.js',
+      
+  // ng-app
   'app/app.js',
   'app/**/*.js'
 ];

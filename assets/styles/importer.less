@@ -4,6 +4,7 @@
 
 // Bootstrap base styles
 @import '../vendor/bootstrap/less/bootstrap.less';
+@import '../vendor/angular-bootstrap-toggle-switch/style/bootstrap3/angular-toggle-switch-bootstrap-3.less';
 
 // Bootstrap theme
 @import 'bootswatch.less';
@@ -13,11 +14,99 @@
 
 body {
   //Because of fixed navbar
-  padding: 70px;
+  padding: 70px 0 20px;
 }
+
+//------------------
+
+.main-view {
+  position: relative;
+  height: 65px;
+  -webkit-transition:opacity .4s ease-in-out;
+  -moz-transition:opacity .4s ease-in-out;
+  -o-transition:opacity .4s ease-in-out;
+  transition:opacity .4s ease-in-out;
+}
+
+
+[ui-view].ng-enter, [ui-view].ng-leave {
+  position: absolute;
+}
+
+[ui-view].ng-enter {
+  transition-delay: .1s;
+  opacity: 0;
+}
+
+[ui-view].ng-enter-active {
+  opacity: 1;
+}
+
+[ui-view].ng-leave {
+  opacity: 1; 
+}
+
+[ui-view].ng-leave-active {
+  opacity: 0;
+}
+//---------------------------------------
+
+.form-group {
+  .ng-hide-add, .ng-hide-remove {
+    /* ensure visibility during the transition */
+    //display: block !important; /* yes, important */
+  }
+
+  .fancy-hide {
+    opacity: 1;
+    -webkit-transition: .5s linear all;  
+    transition: .5s linear all;
+  }
+
+  .fancy-hide.ng-hide {
+    opacity: 0;
+  }
+}
+
+//----------------------------------------
 
 #login-form {
   .input-group {
     margin-bottom: 10px;
   }
+}
+
+.form-group.last {
+  position: relative;
+  top: 10px;
+}
+
+.document-view {
+  
+  h1.page {
+    background-color: @brand-primary;
+  }
+  
+  h1.problem {
+    background-color: @brand-success;
+  }
+}
+
+//----------
+
+.documents.list-group {
+  .icon {
+    width: 100px;
+    float: left;
+    text-align: center;
+    font-size: 4.5em;
+  }
+  
+  h2 {
+    margin: 0 0 5px;
+  }
+}
+
+.no-padding {
+  padding: 0;
 }

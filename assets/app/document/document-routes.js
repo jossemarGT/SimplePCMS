@@ -31,10 +31,10 @@
                     url: '/add',
                     templateUrl: 'app/document/document-add-edit.html'
                 })
-                .state('documents.info', {
-                    url: '/info/:id',
+                .state('documents.view', {
+                    url: '/view/:id',
                     controller: 'SingleDocumentCtrl',
-                    templateUrl: 'app/document/document-info.html'
+                    templateUrl: 'app/document/document-view-render.tpl.html'
                 })
                 .state('documents.edit', {
                     url: '/edit/:id',
