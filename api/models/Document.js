@@ -30,6 +30,14 @@ module.exports = {
     attachment: {
       type: 'array'
       // [{id: 'string', type: 'finalInput'}, ... ]
+    },
+    
+    // We don't need to spit the solution right?
+    toJSON: function() {
+      var obj = this.toObject();
+      if (obj.type === 'problem' && obj.attachment !== undefined)
+        delete obj.attachment[1];
+      return obj;
     }
   }
 };

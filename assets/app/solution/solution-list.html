@@ -1,0 +1,12 @@
+<h1>Solutions</h1>
+<ul>
+    <li ng-repeat="solution in solutions">
+        <div>
+            <p ng-repeat="(key, val) in model_def">{{key}} : {{solution[key]}}</p>
+        </div>
+        <a href="" ui-sref="solutions.edit({ id: solution.id })">Edit</a>
+        <a href="" ng-click="remove(solution)">Delete</a>
+    </li>
+</ul>
+<div ng-show="solutions.length === 0">Looks like you haven't added any solutions yet?</div>
+<a ng-hide="adding" ui-sref="solutions.add">Add A New Solution</a>
