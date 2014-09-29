@@ -26,6 +26,10 @@ module.exports = {
     },
     owner: {
       type: 'string'
+    },
+    attachment: {
+      type: 'array'
+      // [{id: 'string', type: 'finalInput'}, ... ]
     }
   }
 };
