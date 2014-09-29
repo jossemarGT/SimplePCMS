@@ -39,8 +39,11 @@ var jsFilesToInject = [
   'vendor/showdown/compressed/showdown.js',
   'vendor/showdown/compressed/extensions/google-prettify.js',
   'vendor/angular-markdown-directive/markdown.js',
-  
-    
+  // Angular FileReader
+  'vendor/ngFileReader/src/ngFileReader.min.js',
+  // ui toggle switch
+  'vendor/angular-bootstrap-toggle-switch/angular-toggle-switch.min.js',
+      
   // ng-app
   'app/app.js',
   'app/**/*.js'
