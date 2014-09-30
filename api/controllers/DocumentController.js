@@ -24,9 +24,25 @@ module.exports = {
         {'type': 'page'},
         {'type': 'problem'}
       ]
-      }).exec(function(err, data) {
+    }).exec(function(err, data) {
+      if (err) res.negotiate(err);
+      
+      var usrID = req.usr!== undefined ? req.usr.id : 0;
+      
+      Score.findOne({'ownerID': usrID }).exec(function(err, score){
         if (err) res.negotiate(err);
+          
+        if(!_.isEmpty(score)) {
+          _.each(data, function(doc, i){
+            if ( doc.type === 'problem' ){
+              doc.status = _contains(score.success, doc.id) ? 'solved' : '';
+            }
+          });
+        }
+        
         res.json(data);
+      });
+      
     });
   }
 };

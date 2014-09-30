@@ -54,14 +54,25 @@
     });
   }
   
-  
-  //TODO: Add some logic, lol
   function SingleProblemCtrl($scope, $stateParams, Documents, DocumentDefinition) {
     
     $scope.document = _.find(Documents, {
       id: $stateParams.id
     });
-
+    
+    $scope.solution = {};
+    
+    $scope.readFile = function(e, file, flag) {
+      if (flag === 'output'){
+        $scope.solution.output = e.target.result;
+      } else {
+        $scope.solution.code = e.target.result;
+      };
+    }
+    
+    $scope.submitSolution = function(solution) {
+      $scope.document.one().post(solution);
+    }
   }
 
 })(

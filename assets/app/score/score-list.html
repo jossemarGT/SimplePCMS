@@ -1,0 +1,12 @@
+<h1>Scores</h1>
+<ul>
+    <li ng-repeat="score in scores">
+        <div>
+            <p ng-repeat="(key, val) in model_def">{{key}} : {{score[key]}}</p>
+        </div>
+        <a href="" ui-sref="scores.edit({ id: score.id })">Edit</a>
+        <a href="" ng-click="remove(score)">Delete</a>
+    </li>
+</ul>
+<div ng-show="scores.length === 0">Looks like you haven't added any scores yet?</div>
+<a ng-hide="adding" ui-sref="scores.add">Add A New Score</a>

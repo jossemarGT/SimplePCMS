@@ -23,7 +23,8 @@ module.exports = function login(inputs) {
     
     var usr = {
       id: user.id,
-      rol: user.rol
+      rol: user.rol,
+      name: user.username
     }
     
     var jwt = require('jwt-simple');
