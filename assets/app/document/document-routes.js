@@ -31,15 +31,20 @@
                     url: '/add',
                     templateUrl: 'app/document/document-add-edit.html'
                 })
+                .state('documents.edit', {
+                    url: '/edit/:id',
+                    controller: 'SingleDocumentCtrl',
+                    templateUrl: 'app/document/document-add-edit.html'
+                })
                 .state('documents.view', {
                     url: '/view/:id',
                     controller: 'SingleDocumentCtrl',
                     templateUrl: 'app/document/document-view-render.tpl.html'
                 })
-                .state('documents.edit', {
-                    url: '/edit/:id',
-                    controller: 'SingleDocumentCtrl',
-                    templateUrl: 'app/document/document-add-edit.html'
+                .state('documents.solve', {
+                    url: '/solve/:id',
+                    controller: 'SingleProblemCtrl',
+                    templateUrl: 'app/document/document-view-solve.tpl.html'
                 });
         });
 })(

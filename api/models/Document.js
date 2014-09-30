@@ -24,6 +24,10 @@ module.exports = {
       type: 'text',
       required: true
     },
+    status: {
+      type: 'string',
+      defaultsTo: 'publish'
+    },
     owner: {
       type: 'string'
     },
@@ -37,6 +41,10 @@ module.exports = {
       var obj = this.toObject();
       if (obj.type === 'problem' && obj.attachment !== undefined)
         delete obj.attachment[1];
+      
+      if (obj.originalElement !== undefined)
+        delete obj.originalElement;
+      
       return obj;
     }
   }

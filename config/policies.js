@@ -21,7 +21,6 @@ module.exports.policies = {
   ***************************************************************************/
 
   //'*': true,
-  
   UserController: {
     '*': false,
     'login': 'gossipStone', //true,
@@ -31,5 +30,26 @@ module.exports.policies = {
     'update': ['jwtAuth','isAdmin'],
     'create': ['jwtAuth','isAdmin'],
     'destroy': ['jwtAuth','isAdmin']
-  }
+  },
+  /*
+  DocumentController: {
+    '*': false,
+    'definition': true,
+    'find': true,
+    'update': ['jwtAuth','isJudge'],
+    'create': ['jwtAuth','isAdmin'],
+    'destroy': ['jwtAuth','isAdmin']
+  },
+  
+  SolutionController: {
+    '*': false,
+    'definition': true,
+    'submit': ['jwtAuth'],
+    'list': ['jwtAuth'],
+    'find': ['jwtAuth','isJudge'],
+    'update': ['jwtAuth','isJudge'],
+    'create': ['jwtAuth','isAdmin'],
+    'destroy': ['jwtAuth','isAdmin']
+  },*/
+  
 };

@@ -94,6 +94,14 @@ module.exports = {
       inputs.password = hash;
       next();
     });
+  },
+  
+  isAdmin: function (usr) {
+    return usr !== undefined && usr.rol === 'admin';
+  },
+  
+  isJudge: function (usr) {
+    return usr !== undefined && (usr.rol === 'judge' || usr.rol === 'admin');
   }
 };
 
