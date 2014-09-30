@@ -54,12 +54,12 @@
     });
   }
   
-  function SingleProblemCtrl($scope, $stateParams, Documents, DocumentDefinition) {
-    
+  function SingleProblemCtrl($scope, $stateParams, Documents, Restangular) {
+      
     $scope.document = _.find(Documents, {
       id: $stateParams.id
     });
-    
+        
     $scope.solution = {};
     
     $scope.readFile = function(e, file, flag) {
@@ -71,7 +71,24 @@
     }
     
     $scope.submitSolution = function(solution) {
-      $scope.document.one().post(solution);
+      solution = solution || $scope.solution;
+      /*
+      return resourceService.save(document, $scope.documents)
+            .then(function() {
+                $scope.document = {attachment: []};
+                $state.go('^.list');
+            }, function(err) {
+                console.error('An error occured: ' + err);
+            });
+      */
+      console.log(solution);
+      
+      return $scope.document.post('solution', solution)
+      .then(function() {
+        //TODO: check status response
+      }, function(err){
+        console.log("Error while uploading", err);
+      });
     }
   }
 
