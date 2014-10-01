@@ -32,6 +32,7 @@ module.exports.policies = {
     'destroy': ['jwtAuth','isAdmin']
   },
   
+  /*
   DocumentController: {
     '*': false,
     'definition': true,

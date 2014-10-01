@@ -36,8 +36,23 @@ module.exports = {
       // [{id: 'string', type: 'finalInput'}, ... ]
     },
     
+    /*
+    beforeCreate: function (inputs, next) {
+      var err = null;
+      
+      if (inputs.type === 'problem') {
+        if ( _.isEmpty(inputs.attachment)) {
+          inputs.attachment = [{"content": ""},{"content": ""}];
+        } else if (inputs.attachment.length < 2 ) {
+          inputs.attachment[1] = {"content": ""};
+        }
+      }
+      
+      return next(err, inputs);
+    },*/
+    
     // We don't need to spit the solution right?
-    toJSON: function() {
+    toJSON: function () {
       var obj = this.toObject();
       if (obj.type === 'problem' && obj.attachment !== undefined)
         delete obj.attachment[1];

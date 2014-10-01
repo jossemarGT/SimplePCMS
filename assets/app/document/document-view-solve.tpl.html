@@ -25,16 +25,16 @@
     <div class="form-group row">
       <label for="final-output" class="col-md-2 control-label">Attach your final output</label>
       <div class="col-sm-10 slide-right">
-        <div ng-show="solution.output" class="alert alert-success">Output ready</div>
-        <div ng-hide="solution.output" name="final-output" ng-file-reader on-readed="readFile(event, file, 'output')" class="form-control" read-method="'readAsText'"></div>
+        <div ng-show="solution.output" class="alert alert-success animate-hide">Output ready</div>
+        <div ng-hide="solution.output" name="final-output" ng-file-reader on-readed="readFile(event, file, 'output')" class="form-control animate-hide" read-method="'readAsText'"></div>
       </div>
     </div>
     
     <div class="form-group row">
       <label for="final-code" class="col-md-2 control-label">Attach your code</label>
-      <div class="col-sm-10 slide-right">
-        <div ng-show="solution.code" class="alert alert-success">Code ready</div>
-        <div  ng-hide="solution.code" name="final-code" ng-file-reader on-readed="readFile(event, file, 'code')" class="form-control" read-method="'readAsText'"></div>
+      <div class="col-sm-10">
+        <div ng-show="solution.code" class="alert alert-success animate-hide">Code ready</div>
+        <div  ng-hide="solution.code" name="final-code" ng-file-reader on-readed="readFile(event, file, 'code')" class="form-control animate-hide" read-method="'readAsText'"></div>
       </div>
     </div>    
     

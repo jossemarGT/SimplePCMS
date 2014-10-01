@@ -44,12 +44,8 @@ module.exports.routes = {
   'POST /login': 'UserController.login',
   '/logout': 'UserController.logout',
   
-  //Solution submit
-  'GET  /solution/:problemID' : 'SolutionController.list',
-  'POST /solution/:problemID' : 'SolutionController.submit',
-  
-  // Hacky hackiry hack :P
-  'GET  /documents/:problemID/solution' : 'SolutionController.list',
+  // Solutions
+  //'GET  /documents/:problemID/solution' : 'SolutionController.list',
   'POST /documents/:problemID/solution' : 'SolutionController.submit',
 
 };

@@ -25,16 +25,18 @@
     };
 
     $scope.save = function save(document) {
-        document = document || $scope.document;
-        return resourceService.save(document, $scope.documents)
+      document = document || $scope.document;
+      
+      console.log("Lets check 'document': ", document);
+      
+      return resourceService.save(document, $scope.documents)
             .then(function() {
-                $scope.document = {attachment: []};
-                $state.go('^.list');
+              $scope.document = {attachment: []};
+              $state.go('^.list');
             }, function(err) {
-                console.error('An error occured: ' + err);
+              console.error('An error occured: ' + err);
             });
     };
-      
       
     $scope.switchFileInput = true;
     $scope.switchFileOutput = true;

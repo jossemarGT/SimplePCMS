@@ -25,10 +25,35 @@ module.exports = {
   
   submit:  function (req, res) {
     var params = req.allParams();
+    var usrID = req.usr !== undefined ? req.usr.id : 0;
+    var jsdiff = require('diff');
     
-    // We have problemID
+    sails.log("let's see ", params);
     
-    sails.log("amm... params? ", params);
+    Document.findOne({
+      id: params.problemID
+    }).exec(function(err, problemDoc){
+      if (err) res.negotiate(err);
+      
+    /*  
+      var spectedOutput = problemDoc.attachment !== undefined && problemDoc.attachment.length > 1 ? problemDoc.attachment.content : "";
+      
+      var diff = jsdiff.diffLines(spectedOutput, params.output);
+      */
+    });
+    
+    Document.create({
+      title: 'code_by_' + usrID ,
+      type: 'code',
+      content: params.code,
+      owner: usrID
+    }).exec(function(err, doc){
+      if (err) sails.log.err('Oops, something went wrong', err);
+    });
+    
+    // problemID
+    // output
+    // code
     
     res.ok({'status': 'success'});
   }
