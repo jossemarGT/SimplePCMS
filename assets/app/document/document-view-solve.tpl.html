@@ -19,26 +19,28 @@
   </div>
 </div>
 
-<div>
+<div class="solution-attachment-area well">
   <form  name="new_solution_form" role="form">
 
-    <div class="form-group">
-      <label for="final-output" class="col-md-2 control-label">Upload your final output</label>
-      <div class="col-sm-10">
-        <div id="final-output" ng-file-reader on-readed="readFile(event, file, 'output')" class="form-control" read-method="'readAsText'"></div>
+    <div class="form-group row">
+      <label for="final-output" class="col-md-2 control-label">Attach your final output</label>
+      <div class="col-sm-10 slide-right">
+        <div ng-show="solution.output" class="alert alert-success">Output ready</div>
+        <div ng-hide="solution.output" name="final-output" ng-file-reader on-readed="readFile(event, file, 'output')" class="form-control" read-method="'readAsText'"></div>
       </div>
     </div>
     
-    <div class="form-group">
-      <label for="final-code" class="col-md-2 control-label">Upload your code</label>
-      <div class="col-sm-10">
-        <div id="final-code" ng-file-reader on-readed="readFile(event, file, 'code')" class="form-control" read-method="'readAsText'"></div>
+    <div class="form-group row">
+      <label for="final-code" class="col-md-2 control-label">Attach your code</label>
+      <div class="col-sm-10 slide-right">
+        <div ng-show="solution.code" class="alert alert-success">Code ready</div>
+        <div  ng-hide="solution.code" name="final-code" ng-file-reader on-readed="readFile(event, file, 'code')" class="form-control" read-method="'readAsText'"></div>
       </div>
     </div>    
     
-    <div class="form-group last">
+    <div class="form-group last row">
       <div class="col-sm-offset-2 col-sm-10">
-        <button ng-click="submitSolution(solution)" class="btn btn-primary">Save document</button>
+        <button ng-click="submitSolution(solution)" class="btn btn-primary" ng-disabled="!solution.code || !solution.output">Submit</button>
         <button ui-sref="documents.list" class="btn btn-default">Cancel</button>
       </div>
     </div>

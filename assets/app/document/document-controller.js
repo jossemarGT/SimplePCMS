@@ -72,23 +72,14 @@
     
     $scope.submitSolution = function(solution) {
       solution = solution || $scope.solution;
-      /*
-      return resourceService.save(document, $scope.documents)
-            .then(function() {
-                $scope.document = {attachment: []};
-                $state.go('^.list');
-            }, function(err) {
-                console.error('An error occured: ' + err);
-            });
-      */
-      console.log(solution);
       
-      return $scope.document.post('solution', solution)
-      .then(function() {
-        //TODO: check status response
-      }, function(err){
-        console.log("Error while uploading", err);
-      });
+      if ( ! _.isEmpty( solution ) && !_.isEmpty(solution.output) )
+        return $scope.document.post('solution', solution)
+        .then(function() {
+          //TODO: check status response
+        }, function(err){
+          console.log("Error while uploading", err);
+        });
     }
   }
 

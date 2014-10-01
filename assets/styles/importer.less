@@ -14,14 +14,15 @@
 
 body {
   //Because of fixed navbar
-  padding: 70px 0 20px;
+  padding: 70px 0 30px;
 }
 
 //------------------
 
 .main-view {
   position: relative;
-  height: 65px;
+  min-height: 65px;
+  margin-bottom: 20px;
   -webkit-transition:opacity .4s ease-in-out;
   -moz-transition:opacity .4s ease-in-out;
   -o-transition:opacity .4s ease-in-out;
@@ -68,6 +69,32 @@ body {
   }
 }
 
+.slide-right {
+  overflow: hidden;
+  
+  .fancy {
+    -webkit-transition: all ease 1.2s;
+    transition: all ease 1.2s;
+  }
+  
+  .ng-hide-remove {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  .ng-hide {
+    opacity: 0;
+  }
+  
+  .ng-hide-remove {
+    transform: translateX(-100%);
+  }
+  
+  .ng-hide-add {
+    transform: translateX(100%);
+  } 
+  
+}
+
 //----------------------------------------
 
 #login-form {
@@ -107,10 +134,12 @@ body {
   }
 }
 
-.no-padding {
-  padding: 0;
-}
-
 .document-view {
   margin-bottom: 40px;
+}
+
+//---------------
+
+.solution-attachment-area {
+  margin: 40px 0;
 }

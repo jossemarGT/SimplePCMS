@@ -32,7 +32,7 @@
             <li ng-class="{active: $state.includes('home')}"><a ui-sref="home">Home</a></li>
             <li ng-class="{active: $state.includes('documents')}"><a ui-sref="documents.list">Documents</a></li>
             <li ng-class="{active: $state.includes('scores')}"><a ui-sref="scores.list">Scores</a></li>
-            <li ng-class="{active: $state.includes('auth')}"><a ui-sref="auth.login">Login</a></li>
+            <li ng-class="{active: $state.includes('auth')}" ng-hide="$window.sessionStorage.token !== ''"><a ui-sref="auth.login">Login</a></li>
             <!--<li ui-sref-active="active"><a ui-sref="about">About</a></li>-->
           </ul>
         </nav>
