@@ -63,7 +63,7 @@
     });
         
     $scope.solution = {};
-    
+        
     $scope.readFile = function(e, file, flag) {
       if (flag === 'output'){
         $scope.solution.output = e.target.result;
@@ -72,13 +72,21 @@
       };
     }
     
+    $scope.feedback = [
+      //{ type: 'info', msg: 'Submit your solution here' }
+    ];
+    
+    $scope.closeAlert = function(index) {
+      $scope.feedback.splice(index, 1);
+    };
+    
     $scope.submitSolution = function(solution) {
       solution = solution || $scope.solution;
       
       if ( ! _.isEmpty( solution ) && !_.isEmpty(solution.output) )
         return $scope.document.post('solution', solution)
-        .then(function() {
-          //TODO: check status response
+        .then(function(data) {
+          $scope.feedback.push({type: data.type, msg: data.msg });
         }, function(err){
           console.log("Error while uploading", err);
         });

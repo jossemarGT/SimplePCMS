@@ -17,6 +17,8 @@
   </div>
 </div>
 
+<alert ng-repeat="f in feedback" type="{{f.type}}" close="closeAlert($index)">{{f.msg}}</alert>
+
 <div class="solution-attachment-area well">
   <form  name="new_solution_form" role="form">
 

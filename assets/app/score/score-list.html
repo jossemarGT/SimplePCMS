@@ -10,8 +10,10 @@
   <tbody>
     <tr ng-repeat="score in scores | orderBy:'value':true">
       <td>{{score.ownerUsername}}</td>
-      <td ng-repeat="problemID in score.completed">
-        <a ui-sref="documents.solve({id: problemID})">{{problemID}}</a>
+      <td>
+        <span ng-repeat="problemID in score.completed track by $index">
+          <a ui-sref="documents.solve({id: problemID})" class="label label-success">{{problemID}}</a>
+        </span>
       </td>
       <td>{{score.value}}</td>
     </tr>

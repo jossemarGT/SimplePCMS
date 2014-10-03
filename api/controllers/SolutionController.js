@@ -37,7 +37,7 @@ module.exports = {
       content: params.code,
       owner: usrID
     }).exec(function(err, doc){
-      if (err) sails.log.error('Oops, something went wrong', err);
+      if (err) sails.log.error('[Document:code] Creation failed', err);
     });
     
     Document.findOne({
@@ -45,7 +45,7 @@ module.exports = {
     }).exec(function(err, problemDoc){
       if (err) res.negotiate(err);
       
-      //TODO: Rewrite this into Model logic (but later)      
+      //TODO: Rewrite this into Model logic (but later)
       var spectedOutput = problemDoc.attachment.length > 1 ? problemDoc.attachment[1].content : ""
           , diff = jsdiff.diffLines(spectedOutput, params.output.trim())
           , ok = true;
@@ -54,9 +54,9 @@ module.exports = {
       sails.log.debug("Submited: \n", params.output);
             
       ok = diff.every(function(part){
-        sails.log.debug("Part added: ", part.added);
-        sails.log.debug("Part removed: ", part.removed);
-        sails.log.debug("Part content: ", part.value);
+        sails.log.silly("Part added: ", part.added);
+        sails.log.silly("Part removed: ", part.removed);
+        sails.log.silly("Part content: ", part.value);
         
         return !(part.added || part.removed);
       });
@@ -64,13 +64,12 @@ module.exports = {
       sails.log.debug('problem submition, sucess: ', ok);
       
       if( ok ) {
-        //TODO: write new Document (with status "sucess")
         
         Score.findOne({'ownerID': usrID}).exec(function(err, score){
           if (err) res.negotiate(err);
           
           if(_.isEmpty(score)){
-            sails.log.debug('score doesn\'t exists. CREATE');
+            sails.log.silly('score doesn\'t exists. CREATE');
             Score.create({
               'ownerID': usrID,
               'ownerUsername': usrNick,
@@ -78,48 +77,34 @@ module.exports = {
               'value': problemDoc.score
             }).exec(function(err, score){
               if (err) sails.log.error('[Score] Failed create', err);
-              res.ok({'status': 'sucess'});
+              res.ok({'type': 'sucess', 'msg': 'Congratulations. Your solution is alright!'});  
             });
           } else {
-            sails.log.debug('score exists. UPDATE');
-            
-            Score.native(function(err, collection){
-              if (err) sails.log.error('Error with Score.native()', err);
-              
-              var ObjectID = require('mongodb').ObjectID;
-              
-              collection.update({'_id': new ObjectID(score.id) },{
-                $push : {'completed': problemDoc.id},
-                $inc: {'value': problemDoc.score}
-              }, {w:1}, function(err, something){
-                if (err) sails.log.error('[Score] Failed update', err);
-                sails.log.debug(something);
-                res.ok({'status': 'sucess'});  
-              });
-            });
-            /*
-            Score.update({'id': score.id} , {
-              $push : {'completed': problemDoc.id},
-              $inc: {'value': problemDoc.score}
-            }).exec(function(err, score){
-              if (err) sails.log.error('[Score] Failed update', err);
-              sails.log.debug("Amm... scores are updated, maybe?");
-              res.ok({'status': 'sucess'});
-            });
-            */
-            /*
+            sails.log.debug('score exists. UPDATE');            
             if ( !_.contains(score.completed, problemDoc.id) ) {
-              
+              Score.native(function(err, collection){
+                if (err) sails.log.error('Error with Score.native()', err);
+
+                var ObjectID = require('mongodb').ObjectID;
+
+                collection.update({'_id': new ObjectID(score.id) },{
+                  $push : {'completed': problemDoc.id},
+                  $inc: {'value': problemDoc.score}
+                }, {w:1}, function(err, something){
+                  if (err) sails.log.error('[Score] Failed update', err);
+                  sails.log.debug(something);
+                  res.ok({'type': 'sucess', 'msg': 'Congratulations. Your solution is alright!'});  
+                });
+              }); 
             } else {
               //Cheating!
-              res.ok({'status': 'Cheating'});
+              res.ok({'type': 'warning', msg:'Hey, you\'re cheating'});
             }
-            */
           }
         });
       } else {
         //TODO: write new Document (with status "failed")
-        res.ok({'status': 'failed'});
+        res.ok({'type': 'danger', 'msg': 'Sorry, but your solution is not right!'});  
       }
     });
   }
