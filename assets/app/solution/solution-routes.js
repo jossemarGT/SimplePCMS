@@ -23,24 +23,18 @@
                         }
                     },
                 })
+/*
                 .state('solutions.list', {
                     url: '/list',
                     templateUrl: 'app/solution/solution-list.html'
                 })
-                .state('solutions.add', {
-                    url: '/add',
-                    templateUrl: 'app/solution/solution-add-edit.html'
-                })
-                .state('solutions.info', {
-                    url: '/info/:id',
-                    controller: 'SingleSolutionCtrl',
-                    templateUrl: 'app/solution/solution-info.html'
-                })
-                .state('solutions.edit', {
+                .state('solutions.view', {
                     url: '/edit/:id',
                     controller: 'SingleSolutionCtrl',
                     templateUrl: 'app/solution/solution-add-edit.html'
-                });
+                })
+*/
+                ;
         });
 })(
     window.angular

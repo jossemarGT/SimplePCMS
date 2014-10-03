@@ -31,6 +31,11 @@ module.exports = {
     owner: {
       type: 'string'
     },
+    // The proof of the urge of a refactor
+    score: {
+      type: 'integer',
+      defaultsTo: 0
+    },
     attachment: {
       type: 'array'
       // [{id: 'string', type: 'finalInput'}, ... ]

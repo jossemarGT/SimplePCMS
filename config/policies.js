@@ -41,17 +41,16 @@ module.exports.policies = {
     'create': ['jwtAuth','isAdmin'],
     'destroy': ['jwtAuth','isAdmin']
   },
+  */
   
-  /*
   SolutionController: {
-    '*': false,
+    '*': true,
     'definition': true,
-    'submit': ['jwtAuth'],
-    'list': ['jwtAuth'],
+    'list': true,
+    'submit': 'jwtCheck' ,//['jwtAuth'],
     'find': ['jwtAuth','isJudge'],
     'update': ['jwtAuth','isJudge'],
     'create': ['jwtAuth','isAdmin'],
     'destroy': ['jwtAuth','isAdmin']
-  },
-  */
+  }
 };

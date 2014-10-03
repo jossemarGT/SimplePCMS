@@ -31,15 +31,11 @@
         };
     }
 
-    function SingleUserCtrl($scope, $stateParams, Users, UserDefinition) {
-        // coerce string -> int
-        $stateParams.id = _.parseInt($stateParams.id);
-        if (!_.isNaN($stateParams.id)) {
-            $scope.user = _.find(Users, {
-                id: $stateParams.id
-            });
-        }
-    }
+  function SingleUserCtrl($scope, $stateParams, Users, UserDefinition) {
+    $scope.user = _.find(Users, {
+      id: $stateParams.id
+    });
+  }
 
 })(
     window.angular,

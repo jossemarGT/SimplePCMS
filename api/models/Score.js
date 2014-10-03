@@ -16,7 +16,7 @@ module.exports = {
       type: 'string',
       required: true
     },
-    ownerNickname: {
+    ownerUsername: {
       type: 'string',
       required: true
     },
@@ -24,7 +24,7 @@ module.exports = {
       type: 'array'
       // ['problemID', 'problemID', ... ]
     },
-    points: {
+    value: {
       type: 'integer',
       defaultsTo: 0
     }

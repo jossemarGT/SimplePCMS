@@ -27,10 +27,7 @@
                     url: '/list',
                     templateUrl: 'app/score/score-list.html'
                 })
-/*                .state('scores.add', {
-                    url: '/add',
-                    templateUrl: 'app/score/score-add-edit.html'
-                })
+/*
                 .state('scores.info', {
                     url: '/info/:id',
                     controller: 'SingleScoreCtrl',
@@ -40,8 +37,9 @@
                     url: '/edit/:id',
                     controller: 'SingleScoreCtrl',
                     templateUrl: 'app/score/score-add-edit.html'
-                });
-*/
+                })
+*/ 
+                ;
         });
 })(
     window.angular

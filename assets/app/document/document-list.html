@@ -6,7 +6,7 @@ Listing all the documents (Pages or Problems)
     <div class="icon">
       <span class="glyphicon" ng-class="{ 'glyphicon-globe': document.type==='page', 'glyphicon-flash': document.type==='problem' }"></span>
     </div>
-    <h2>{{document.title}}  <span class="badge">{{document.points}}</span></h2>
+    <h2>{{document.title}} <span class="badge" ng-show="document.type==='problem' && document.score">{{document.score}}pts</span></h2>
     <div class="btn-group btn-group-sm">
       <a class="btn btn-primary" href="" ui-sref="documents.view({ id: document.id })" ng-show="document.type!=='problem'" >View</a>
       <a class="btn btn-primary" href="" ui-sref="documents.solve({ id: document.id })" ng-show="document.type==='problem'">Solve</a>
