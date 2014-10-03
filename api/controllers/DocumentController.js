@@ -15,10 +15,10 @@ module.exports = {
   },
   
   /**
-   * Change the default behavioar of "index"
+   * Change the default behavioar of "list"
    */
   
-  index: function(req, res) {
+  list: function(req, res) {
     Document.find({
       '$or' : [
         {'type': 'page'},

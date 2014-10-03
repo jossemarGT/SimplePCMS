@@ -44,8 +44,11 @@ module.exports.routes = {
   'POST /login': 'UserController.login',
   '/logout': 'UserController.logout',
   
+  // Documents list
+  'GET /documents': 'DocumentController.list',
+  
   // Solutions
-  //'GET  /documents/:problemID/solution' : 'SolutionController.list',
+  'GET  /documents/:problemID/solution' : 'SolutionController.list',
   'POST /documents/:problemID/solution' : 'SolutionController.submit',
 
 };
