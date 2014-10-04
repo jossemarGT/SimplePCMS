@@ -77,7 +77,7 @@ module.exports = {
               'value': problemDoc.score
             }).exec(function(err, score){
               if (err) sails.log.error('[Score] Failed create', err);
-              res.ok({'type': 'sucess', 'msg': 'Congratulations. Your solution is alright!'});  
+              res.ok({'type': 'success', 'msg': 'Congratulations. Your solution is alright!'});  
             });
           } else {
             sails.log.debug('score exists. UPDATE');            
@@ -93,7 +93,7 @@ module.exports = {
                 }, {w:1}, function(err, something){
                   if (err) sails.log.error('[Score] Failed update', err);
                   sails.log.debug(something);
-                  res.ok({'type': 'sucess', 'msg': 'Congratulations. Your solution is alright!'});  
+                  res.ok({'type': 'success', 'msg': 'Congratulations. Your solution is alright!'});  
                 });
               }); 
             } else {
