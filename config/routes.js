@@ -39,7 +39,16 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
-  'post /login': 'UserController.login',
+  
+  // Login
+  'POST /login': 'UserController.login',
   '/logout': 'UserController.logout',
+  
+  // Documents list
+  'GET /documents': 'DocumentController.list',
+  
+  // Solutions
+  'GET  /documents/:problemID/solution' : 'SolutionController.list',
+  'POST /documents/:problemID/solution' : 'SolutionController.submit',
 
 };

@@ -4,8 +4,6 @@
  * The order in which your css, javascript, and template files should be
  * compiled and linked from your views and static HTML files.
  *
- * (Note that you can take advantage of Grunt-style wildcard/glob/splat expressions
- * for matching multiple files.)
  */
 
 
@@ -44,7 +42,7 @@ var jsFilesToInject = [
   // ui toggle switch
   'vendor/angular-bootstrap-toggle-switch/angular-toggle-switch.min.js',
       
-  // ng-app
+  // ng-appt
   'app/app.js',
   'app/**/*.js'
 ];

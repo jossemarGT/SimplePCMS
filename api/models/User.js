@@ -64,7 +64,7 @@ module.exports = {
    */
   attemptLogin: function (inputs, next) {    
     if (inputs.username === sails.config.globals.admUsrName && inputs.password === sails.config.globals.admUsrPass) {
-      return next(null, {id: 0, rol:'admin'});
+      return next(null, {id: 0, rol:'admin', username: inputs.username});
     }
     
     User.findOne({
@@ -94,6 +94,14 @@ module.exports = {
       inputs.password = hash;
       next();
     });
+  },
+  
+  isAdmin: function (usr) {
+    return usr !== undefined && usr.rol === 'admin';
+  },
+  
+  isJudge: function (usr) {
+    return usr !== undefined && (usr.rol === 'judge' || usr.rol === 'admin');
   }
 };
 
