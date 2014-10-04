@@ -11,12 +11,13 @@ module.exports = function(req, res, next) {
     , token = req.get('Authorization')
     , usr = null;
   
-  sails.log('AUTH: ', req.get('Authorization'));
+  sails.log.debug('AUTH: ', req.get('Authorization'));
   
   if (token !== undefined) {
     usr = jwt.decode(token, sails.config.globals.jwtSecret, 'HS512');
-    sails.log('ID: ', usr.id);
-    sails.log('ROL: ', usr.rol);
+    sails.log.debug('ID: ', usr.id);
+    sails.log.debug('ROL: ', usr.rol);
+    sails.log.debug('NICK: ', usr.name);
   }
   
   return next();

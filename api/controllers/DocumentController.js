@@ -35,7 +35,7 @@ module.exports = {
         if(!_.isEmpty(score)) {
           _.each(data, function(doc, i){
             if ( doc.type === 'problem' ){
-              doc.status = _contains(score.success, doc.id) ? 'solved' : '';
+              doc.status = _.contains(score.success, doc.id) ? 'solved' : '';
             }
           });
         }

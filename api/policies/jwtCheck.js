@@ -18,7 +18,7 @@ module.exports = function(req, res, next) {
     var usr = jwt.decode(token, sails.config.globals.jwtSecret, 'HS512');
     
     req.usr = usr;
-    sails.log.debug('Login: ', usr);
+    sails.log.debug('Auth jwt:\n', usr);
   }
 
   // Authenticated or not here we go

@@ -31,24 +31,29 @@ module.exports.policies = {
     'create': ['jwtAuth','isAdmin'],
     'destroy': ['jwtAuth','isAdmin']
   },
-  
-  /*
+
   DocumentController: {
     '*': false,
     'definition': true,
-    'index': 'jwtCheck',
+    'list': 'jwtCheck',
     'update': ['jwtAuth','isJudge'],
     'create': ['jwtAuth','isAdmin'],
     'destroy': ['jwtAuth','isAdmin']
   },
-  */
-  
+
   SolutionController: {
-    '*': true,
+    '*': false,
     'definition': true,
     'list': true,
-    'submit': 'jwtCheck' ,//['jwtAuth'],
+    'submit': ['jwtAuth'],
     'find': ['jwtAuth','isJudge'],
+    'update': ['jwtAuth','isJudge'],
+    'create': ['jwtAuth','isAdmin'],
+    'destroy': ['jwtAuth','isAdmin']
+  },
+  
+  ScoreController: {
+    '*': true,
     'update': ['jwtAuth','isJudge'],
     'create': ['jwtAuth','isAdmin'],
     'destroy': ['jwtAuth','isAdmin']
