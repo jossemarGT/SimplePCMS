@@ -26,9 +26,7 @@
 
     $scope.save = function save(document) {
       document = document || $scope.document;
-      
-      console.log("Lets check 'document': ", document);
-      
+            
       return resourceService.save(document, $scope.documents)
             .then(function() {
               $scope.document = {attachment: []};

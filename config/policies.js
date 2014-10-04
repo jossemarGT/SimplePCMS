@@ -23,7 +23,7 @@ module.exports.policies = {
   //'*': true,
   UserController: {
     '*': false,
-    'login': 'gossipStone', //true,
+    'login': 'gossipStone',
     'logout': 'gossipStone',
     'definition': true,
     'find': true,
